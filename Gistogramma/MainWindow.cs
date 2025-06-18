@@ -33,7 +33,7 @@ namespace Gistogramma
             paramsGrid.Columns.Clear();
             gridNumbersBegin.Columns.Clear();
             systemsGrid.Columns.Clear();
-            systemsGrid.Columns.Add("Column1", "Наименования систем");
+            systemsGrid.Columns.Add("Column1", "Наименования объектов");
             paramsGrid.Columns.Add("Column1", "Наименования параметров");
             paramsGrid.Columns.Add("Column2", "Веса");
         }
@@ -47,7 +47,7 @@ namespace Gistogramma
             }
             else
             {
-                if (gridNumbersBegin.Columns.Count != varUpDown.Value)
+                while (gridNumbersBegin.Columns.Count != varUpDown.Value)
                     gridNumbersBegin.Columns.Add($"Column{gridNumbersBegin.Columns.Count + 1}",
                         $"Вар-т {gridNumbersBegin.Columns.Count + 1}");
             }
@@ -59,7 +59,7 @@ namespace Gistogramma
             }
             else
             {
-                if (systemsGrid.Rows.Count != varUpDown.Value)
+                while (systemsGrid.Rows.Count != varUpDown.Value)
                     systemsGrid.Rows.Add();
             }
         }
@@ -86,7 +86,7 @@ namespace Gistogramma
                     }
                     else
                     {
-                        if (paramsGrid.Rows.Count != paramsUpDown.Value)
+                        while (paramsGrid.Rows.Count != paramsUpDown.Value)
                         {
                             paramsGrid.Rows.Add();
                             gridNumbersBegin.Rows.Add();
@@ -398,7 +398,7 @@ namespace Gistogramma
             {
                 List<float> list = NormalizeValues(Results);
                 Charter ChartSystems = new Charter();
-                ChartSystems.Text = "Системы";
+                ChartSystems.Text = "Объекты";
                 ChartSystems.Show();
                 for (int i = 0; i <= list.Count - 1; i++)
                 {
